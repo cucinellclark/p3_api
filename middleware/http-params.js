@@ -86,7 +86,7 @@ module.exports = function (req, res, next) {
       req._parsedUrl.path = req._parsedUrl.pathname + ((req._parsedUrl.search.charAt(0) === '?') ? req._parsedUrl.search : ('?' + req._parsedUrl.search))
       req._parsedUrl.href = req._parsedUrl.path
       req.url = URL.format(req._parsedUrl)
-      req._parsedUrl.query = '?' + req._parsedUrl.search
+      req._parsedUrl.query = req._parsedUrl.search
       debug('set req.query to ', req._parsedUrl.search)
     }
   } else {

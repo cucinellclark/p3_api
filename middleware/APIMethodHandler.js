@@ -9,7 +9,7 @@ var solrAgent = Web.getSolrAgent();
 
 function streamQuery (req, res, next) {
   if (req.call_method !== 'stream') {
-    next()
+    return next()
   }
 
   const query = req.call_params[0]
@@ -33,7 +33,7 @@ function streamQuery (req, res, next) {
 
 function querySOLR (req, res, next) {
   if (req.call_method !== 'query') {
-    next()
+    return next()
   }
 
   const query = req.call_params[0]
