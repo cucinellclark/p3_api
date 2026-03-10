@@ -11,7 +11,8 @@
         "application/protein+fasta": "Returns Protein sequences for queries in FASTA format",
         "application/dna+jsonh+fasta": "Returns DNA sequences for queries in JSONH-FASTA format",
         "application/protein+jsonh+fasta": "Returns Protein sequences for queries in JSONH-FASTA format",
-        "application/gff": "Returns a genomic features in GFF format"
+        "application/gff": "Returns a genomic features in GFF format",
+        "application/sralign+dna+fasta": "Returns DNA sequences aligned from SRA data in FASTA format"
     },
     "rql_operators": [
         {"op": "eq", "proto": "eq(FIELD,VALUE)", "description": "FIELD equals VALUE"},
@@ -87,7 +88,12 @@
         },
         "genome_sequence": {
             "label": "Genome Sequence",
-            "example_id": "170673.13.con.0100"
+            "description": "Contig, chromosome, and plasmid nucleotide sequences for a genome",
+            "example_id": "170673.13.con.0100",
+            "extra_query_examples": [
+                {"query": "eq(genome_id,1765.317)&limit(5)&http_accept=application/dna+fasta", "description": "Query for genome sequences for genome 1765.317, limit to 5 sequences. Return DNA FASTA."}
+            ],
+            "extra_formatters": ["application/dna+fasta","application/dna+jsonh+fasta","application/sralign+dna+fasta"]
         },
         "id_ref": {
             "label": "ID Ref",
