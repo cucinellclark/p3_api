@@ -62,7 +62,15 @@
             "example_id": "1313.5458",
             "extra_query_examples": [
                 {"query": "eq(taxon_id,1313)&limit(5)&http_accept=text/tsv", "description": "Query for sequences with taxon_id == 1313, limit to 5 sequences.  Return TSV data."}
-            ]
+            ],
+            "fields": {
+                "genome_id": {"description": "Unique identifier for the genome, in the format taxon_id.index (e.g. 1313.5458)"},
+                "genome_name": {"description": "Full display name of the genome, typically including genus, species, and strain designation"},
+                "taxon_id": {"description": "NCBI Taxonomy identifier for the organism"},
+                "genome_status": {"description": "Assembly status of the genome (e.g. Complete, WGS, Plasmid)"},
+                "contigs": {"description": "Number of contiguous sequences (contigs) in the genome assembly"},
+                "genome_length": {"description": "Total length of the genome in base pairs"}
+            }
         },
         "strain":{
             "label": "Strain",

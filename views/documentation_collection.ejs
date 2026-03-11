@@ -46,6 +46,9 @@
                         <span>(
                             <%= render_type(field,results.schema) %>)
                         </span>
+                        <% if (doc_data.fields && doc_data.fields[field.name] && doc_data.fields[field.name].description) { %>
+                            <span class="text-gray-600 ml-1">- <%= doc_data.fields[field.name].description %></span>
+                        <% } %>
                     </li>
                 <% } %>
             <% }) %>
