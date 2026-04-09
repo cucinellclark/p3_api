@@ -1,7 +1,7 @@
 const nconf = require('nconf')
 
 const defaults = {
-  http_port: 3001,
+  http_port: 12009,
 
   collections: [
     'antibiotics',
