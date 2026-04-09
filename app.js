@@ -66,6 +66,9 @@ logger.token('qtime', function (req, res) {
 logger.token('remote-ip', function (req, res) {
   return req.headers['x-forwarded-for'] || req.connection.remoteAddress
 })
+logger.token('auth-user', function (req, res) {
+  return req.authUser || '<unauth>'
+})
 
 app.use(logger('[:date[iso]] :remote-ip :method :url :status :response-time [:qtime] ms - :res[content-length] :auth-user'))
 
@@ -108,7 +111,7 @@ app.use(cors({
   origin: true,
   methods: ['GET,POST,PUT,DELETE'],
   allowHeaders: ['if-none-match', 'range', 'accept', 'x-range', 'content-type', 'authorization'],
-  exposedHeaders: ['facet_counts', 'x-facet-count', 'Content-Range', 'X-Content-Range', 'ETag'],
+  exposedHeaders: ['facet_counts', 'x-facet-count', 'Content-Range', 'X-Content-Range', 'X-Cursor-Mark', 'ETag'],
   credential: true,
   maxAge: 86400
 }))

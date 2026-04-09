@@ -99,6 +99,11 @@
             "op": "facet",
             "proto": "facet((FACET_PROPERTY,PROPERTY_VALUE),(FACET_PROPERTY,PROPERTY_VALUE),...)",
             "description": "Allows facets to be specified along with a query. Facet results are included in the HTTP response header when the response content-type is application/json and included in the response body for application/solr+json"
+        },
+        {
+            "op": "cursor",
+            "proto": "cursor(TOKEN)",
+            "description": "Enables cursor-based pagination. Use cursor(*) for the initial request. The response includes an X-Cursor-Mark header containing the token for the next page. Pass that token as cursor(TOKEN) in the subsequent request. Pagination is complete when the returned X-Cursor-Mark equals the token you sent, or when an empty result set is returned. Cannot be combined with grouped queries or offset-based pagination (Range header). A sort clause including the collection unique key is automatically appended if not already present."
         }
     ],
     "black_listed_collections": [
